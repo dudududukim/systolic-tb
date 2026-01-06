@@ -4,29 +4,31 @@ ReuseB case TB
 
 <img src="assets/SInt-reuseB-16x16.svg" width="500px"/>
 
-## Scenarios
-
-### 1. Indentity test 
-→ B : indentity / A : Incremental
-### 2. Stationary & Back-to-Back Streaming Test 
-→ B fixed / A : streaming immediately after the first matrix
-### 3. Corner Case & Precision Test 
-→ zero / max(8’h7f) / min(8'h80)
-### 4. Weight Full Re-load Test 
-→ B updating immediately after computation
-### 5. Partial Weight Re-load Test 
-→ some CaptureEnable enabled
-### 6. Pipeline Fill & Drain Test 
-→ 10 matric inject / the full cycle check
-
 ## setting
 
 ```bash
 uv sync
-uv run src/test/scripts/generate_vectors.py
+make all
+```
 
-# test vectors generated
+## Files
 
-
-
+```
+.
+├── main.py                          # Main entry point
+├── pyproject.toml                   # Project configuration
+├── Makefile                         # Build automation
+├── README.md                        # This file
+├── assets/
+│   └── SInt-reuseB-16x16.svg       # Architecture diagram
+├── src/
+│   ├── rtl/
+│   │   └── SInt_ReuseB_SystolicArray_16x16.v  # Verilog RTL
+│   ├── scripts/
+│   │   ├── generate_vectors.py     # Test vector generation
+│   │   ├── hex_io.py               # Hex I/O utilities
+│   │   └── matrix_gen.py           # Matrix generation functions
+│   ├── tb/
+│   │   ├── tb_systolic.v
+├── vectors/                        # Generated test vectors
 ```

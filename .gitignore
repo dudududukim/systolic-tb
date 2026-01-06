@@ -128,3 +128,9 @@ test_output/
 test_results/
 *.hex
 *.dat
+
+*.mov
+
+
+/results/
+/vectors/

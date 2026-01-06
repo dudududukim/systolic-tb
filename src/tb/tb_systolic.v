@@ -623,13 +623,19 @@ module tb_systolic();
             // should wait for 2N (N+1(PE) + N-1(skew))
             // need to wait for Ty kew -> after 16 cycles the output out
             #20     // input delay 1-cycle + skew delay 1-cycle
-            for (cycle = 0; cycle < 31; cycle = cycle + 1) begin
+            for (cycle = 0; cycle < 32; cycle = cycle + 1) begin
                 @(posedge clk);
                 if (cycle >= 16) begin
                     check_outputs_vectorwise(cycle, test_offset);
                 end
                 for (i = 0; i < 16; i = i + 1) begin
                     for (j = 0; j < 16; j = j + 1) begin
+                        if (cycle == 29) begin
+                            if (i==15 && j==15)begin
+                                outputCaptureEnableC[i][j] <= 1'b0;
+                                resetPartialC[i][j] <= 1'b1;
+                            end
+                        end
                         if (i + j == cycle) begin
                             outputCaptureEnableC[i][j] <= 1'b0;
                             resetPartialC[i][j] <= 1'b1;

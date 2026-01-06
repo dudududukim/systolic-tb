@@ -25,7 +25,6 @@ make all
 │   │   └── SInt_ReuseB_SystolicArray_16x16.v  # Verilog RTL
 │   ├── scripts/
 │   │   ├── gen_vectors.py           # Test vector generation
-
 │   ├── tb/
 │   │   ├── tb_systolic.v
 ├── vectors/                         # Generated test vectors

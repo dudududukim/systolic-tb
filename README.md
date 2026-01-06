@@ -15,7 +15,6 @@ make all
 
 ```
 .
-├── main.py                          # Main entry point
 ├── pyproject.toml                   # Project configuration
 ├── Makefile                         # Build automation
 ├── README.md                        # This file

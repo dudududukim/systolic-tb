@@ -19,15 +19,14 @@ make all
 ├── Makefile                         # Build automation
 ├── README.md                        # This file
 ├── assets/
-│   └── SInt-reuseB-16x16.svg       # Architecture diagram
+│   └── SInt-reuseB-16x16.svg        # Architecture diagram
 ├── src/
 │   ├── rtl/
 │   │   └── SInt_ReuseB_SystolicArray_16x16.v  # Verilog RTL
 │   ├── scripts/
-│   │   ├── generate_vectors.py     # Test vector generation
-│   │   ├── hex_io.py               # Hex I/O utilities
-│   │   └── matrix_gen.py           # Matrix generation functions
+│   │   ├── gen_vectors.py           # Test vector generation
+
 │   ├── tb/
 │   │   ├── tb_systolic.v
-├── vectors/                        # Generated test vectors
+├── vectors/                         # Generated test vectors
 ```

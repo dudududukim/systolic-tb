@@ -103,7 +103,6 @@ transcript
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-Makefile
 *.make
 
 # Temporary files

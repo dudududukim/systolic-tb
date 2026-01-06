@@ -1,4 +1,4 @@
-VERILOG_SRC = src/rtl/SInt_ReuseC_SystolicArray_16x16-rr.v src/tb/tb_systolic.v
+VERILOG_SRC = src/rtl/SInt_ReuseC_SystolicArray_16x16.v src/tb/tb_systolic.v
 
 TARGET = results/sim.out
 

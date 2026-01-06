@@ -1,11 +1,10 @@
 // Generator : SpinalHDL v1.12.3    git head : 591e64062329e5e2e2b81f4d52422948053edb97
 // Component : SInt_ReuseC_SystolicArray_16x16
-// Git hash  : 3085cb43943eb4f27ae7a21a20f2551c4c474ca1
+// Git hash  : cddaaeec8c9db59dda12954b111550e66455a898
 
 `timescale 1ns/1ps
 
 module SInt_ReuseC_SystolicArray_16x16 (
-// regin inputA
   input  wire [7:0]    io_inputA_0,
   input  wire [7:0]    io_inputA_1,
   input  wire [7:0]    io_inputA_2,
@@ -22,8 +21,6 @@ module SInt_ReuseC_SystolicArray_16x16 (
   input  wire [7:0]    io_inputA_13,
   input  wire [7:0]    io_inputA_14,
   input  wire [7:0]    io_inputA_15,
-// end of regin inputA
-// regin inputB
   input  wire [7:0]    io_inputB_0,
   input  wire [7:0]    io_inputB_1,
   input  wire [7:0]    io_inputB_2,
@@ -40,8 +37,6 @@ module SInt_ReuseC_SystolicArray_16x16 (
   input  wire [7:0]    io_inputB_13,
   input  wire [7:0]    io_inputB_14,
   input  wire [7:0]    io_inputB_15,
-// end of regin inputB
-// regin outputCaptureEnableC
   input  wire          io_outputCaptureEnableC_0_0,
   input  wire          io_outputCaptureEnableC_0_1,
   input  wire          io_outputCaptureEnableC_0_2,
@@ -298,8 +293,6 @@ module SInt_ReuseC_SystolicArray_16x16 (
   input  wire          io_outputCaptureEnableC_15_13,
   input  wire          io_outputCaptureEnableC_15_14,
   input  wire          io_outputCaptureEnableC_15_15,
-// end of regin outputCaptureEnableC
-// regin resetPartialC
   input  wire          io_resetPartialC_0_0,
   input  wire          io_resetPartialC_0_1,
   input  wire          io_resetPartialC_0_2,
@@ -556,8 +549,6 @@ module SInt_ReuseC_SystolicArray_16x16 (
   input  wire          io_resetPartialC_15_13,
   input  wire          io_resetPartialC_15_14,
   input  wire          io_resetPartialC_15_15,
-// end of regin resetPartialC
-// regin outputC
   output wire [25:0]   io_outputC_0,
   output wire [25:0]   io_outputC_1,
   output wire [25:0]   io_outputC_2,
@@ -589,7 +580,6 @@ module SInt_ReuseC_SystolicArray_16x16 (
   output wire [25:0]   io_outputC_28,
   output wire [25:0]   io_outputC_29,
   output wire [25:0]   io_outputC_30,
-// end of regin outputC
   input  wire          clk,
   input  wire          reset
 );
@@ -4657,6 +4647,7 @@ module TypeC_DeskewBuffer (
   reg        [25:0]   io_input_0_delay_13;
   reg        [25:0]   io_input_0_delay_14;
   reg        [25:0]   io_input_0_delay_15;
+  reg        [25:0]   io_input_0_delay_16;
   reg        [25:0]   io_input_1_delay_1;
   reg        [25:0]   io_input_1_delay_2;
   reg        [25:0]   io_input_1_delay_3;
@@ -4762,8 +4753,9 @@ module TypeC_DeskewBuffer (
   reg        [25:0]   io_input_13_delay_1;
   reg        [25:0]   io_input_13_delay_2;
   reg        [25:0]   io_input_14_delay_1;
+  reg        [25:0]   io_input_30_delay_1;
 
-  assign io_output_0 = io_input_0_delay_15;
+  assign io_output_0 = io_input_0_delay_16;
   assign io_output_1 = io_input_1_delay_14;
   assign io_output_2 = io_input_2_delay_13;
   assign io_output_3 = io_input_3_delay_12;
@@ -4793,7 +4785,7 @@ module TypeC_DeskewBuffer (
   assign io_output_27 = io_input_27;
   assign io_output_28 = io_input_28;
   assign io_output_29 = io_input_29;
-  assign io_output_30 = io_input_30;
+  assign io_output_30 = io_input_30_delay_1;
   always @(posedge clk) begin
     io_input_0_delay_1 <= io_input_0;
     io_input_0_delay_2 <= io_input_0_delay_1;
@@ -4810,6 +4802,7 @@ module TypeC_DeskewBuffer (
     io_input_0_delay_13 <= io_input_0_delay_12;
     io_input_0_delay_14 <= io_input_0_delay_13;
     io_input_0_delay_15 <= io_input_0_delay_14;
+    io_input_0_delay_16 <= io_input_0_delay_15;
     io_input_1_delay_1 <= io_input_1;
     io_input_1_delay_2 <= io_input_1_delay_1;
     io_input_1_delay_3 <= io_input_1_delay_2;
@@ -4915,6 +4908,7 @@ module TypeC_DeskewBuffer (
     io_input_13_delay_1 <= io_input_13;
     io_input_13_delay_2 <= io_input_13_delay_1;
     io_input_14_delay_1 <= io_input_14;
+    io_input_30_delay_1 <= io_input_30;
   end
 
 
@@ -5662,20 +5656,23 @@ module ProcessingElement_240 (
   reg        [7:0]    io_inputA_regNext;
   wire       [15:0]   _zz_io_outputC;
   reg        [25:0]   _zz_io_outputC_1;
+  reg        [25:0]   _zz_io_outputC_2;
 
   assign _zz__zz_io_outputC_1 = {{10{_zz_io_outputC[15]}}, _zz_io_outputC};
   assign _zz__zz_io_outputC_1_1 = ($signed(_zz__zz_io_outputC_1_2) + $signed(_zz_io_outputC_1));
   assign _zz__zz_io_outputC_1_2 = {{10{_zz_io_outputC[15]}}, _zz_io_outputC};
   assign io_outputA = io_inputA_regNext;
   assign _zz_io_outputC = ($signed(io_inputA) * $signed(io_inputB));
-  assign io_outputC = (io_outputCaptureEnableC ? _zz_io_outputC_1 : io_inputC);
+  assign io_outputC = _zz_io_outputC_2;
   always @(posedge clk) begin
     if(reset) begin
       io_inputA_regNext <= 8'h0;
       _zz_io_outputC_1 <= 26'h0;
+      _zz_io_outputC_2 <= 26'h0;
     end else begin
       io_inputA_regNext <= io_inputA;
       _zz_io_outputC_1 <= (io_resetPartialC ? _zz__zz_io_outputC_1 : _zz__zz_io_outputC_1_1);
+      _zz_io_outputC_2 <= (io_outputCaptureEnableC ? _zz_io_outputC_1 : io_inputC);
     end
   end
 
@@ -6148,23 +6145,26 @@ module ProcessingElement_16 (
   reg        [7:0]    io_inputB_regNext;
   wire       [15:0]   _zz_io_outputC;
   reg        [25:0]   _zz_io_outputC_1;
+  reg        [25:0]   _zz_io_outputC_2;
 
   assign _zz__zz_io_outputC_1 = {{10{_zz_io_outputC[15]}}, _zz_io_outputC};
-  assign _zz__zz_io_outputC_1_1 = ($signed(_zz__zz_io_outputC_1_2) + $signed(_zz_io_outputC_1));    // full sum
-  assign _zz__zz_io_outputC_1_2 = {{10{_zz_io_outputC[15]}}, _zz_io_outputC};   // partial sum
+  assign _zz__zz_io_outputC_1_1 = ($signed(_zz__zz_io_outputC_1_2) + $signed(_zz_io_outputC_1));
+  assign _zz__zz_io_outputC_1_2 = {{10{_zz_io_outputC[15]}}, _zz_io_outputC};
   assign io_outputA = io_inputA_regNext;
   assign io_outputB = io_inputB_regNext;
   assign _zz_io_outputC = ($signed(io_inputA) * $signed(io_inputB));
-  assign io_outputC = (io_outputCaptureEnableC ? _zz_io_outputC_1 : io_inputC);
+  assign io_outputC = _zz_io_outputC_2;
   always @(posedge clk) begin
     if(reset) begin
       io_inputA_regNext <= 8'h0;
       io_inputB_regNext <= 8'h0;
       _zz_io_outputC_1 <= 26'h0;
+      _zz_io_outputC_2 <= 26'h0;
     end else begin
       io_inputA_regNext <= io_inputA;
       io_inputB_regNext <= io_inputB;
       _zz_io_outputC_1 <= (io_resetPartialC ? _zz__zz_io_outputC_1 : _zz__zz_io_outputC_1_1);
+      _zz_io_outputC_2 <= (io_outputCaptureEnableC ? _zz_io_outputC_1 : io_inputC);
     end
   end
 
